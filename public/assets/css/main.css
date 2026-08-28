@@ -87,7 +87,7 @@ h4 {
   text-transform: uppercase;
 }
 
-.brand {
+.brand { 
   display: inline-flex;
   align-items: center;
   gap: 11px;
