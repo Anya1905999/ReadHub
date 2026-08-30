@@ -1764,6 +1764,22 @@ h4 {
   transition: color 0.25s ease;
 }
 
+.category-option__content .category-option__button {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  padding: 9px 13px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  color: #63b66b;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .category-option__arrow {
   position: absolute;
   top: 22px;
@@ -2095,6 +2111,13 @@ h4 {
   font-style: normal;
   transform: translateY(-50%);
   transition: transform 0.2s ease;
+}
+
+.article-related__empty {
+  margin: 0;
+  padding: 18px 24px 24px;
+  color: #a7a7a7;
+  font-size: 0.84rem;
 }
 
 .article-related__item:hover i,

@@ -28,9 +28,15 @@ switch ($action) {
                     a.image_url,
                     a.dt_create,
                     a.category_id,
-                    c.name AS category_name
+                    c.name AS category_name,
+                    COALESCE(article_view_totals.views_count, 0) AS views_count
                  FROM articles AS a
                  INNER JOIN categories AS c ON c.id = a.category_id
+                 LEFT JOIN (
+                    SELECT article_id, COUNT(*) AS views_count
+                    FROM article_views
+                    GROUP BY article_id
+                 ) AS article_view_totals ON article_view_totals.article_id = a.ID
                  ORDER BY a.dt_create DESC, a.ID DESC
                  LIMIT 6'
             )->fetchAll();

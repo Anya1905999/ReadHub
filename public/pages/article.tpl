@@ -36,6 +36,7 @@
                     <p class="article-header__description">{$article.description|escape}</p>
                     <div class="article-header__meta">
                         <time datetime="{$article.dt_create|date_format:'%Y-%m-%d'}">{$article.dt_create|date_format:'%d.%m.%Y'}</time>
+                        <span>{$article.views_count|escape} просмотров</span>
                     </div>
                 </div>
             </div>
@@ -60,6 +61,7 @@
                     <dl>
                         <div><dt>Опубликовано</dt><dd>{$article.dt_create|date_format:'%d.%m.%Y'}</dd></div>
                         <div><dt>Категория</dt><dd><a href="/category?id={$article.category_id|escape}">{$article.category_name|escape}</a></dd></div>
+                        <div><dt>Просмотры</dt><dd>{$article.views_count|escape}</dd></div>
                     </dl>
                 </section>
 
@@ -67,21 +69,15 @@
                     <p class="article-aside__label">Продолжить чтение</p>
                     <h2 id="related-title">Похожие статьи</h2>
                     <div class="article-related__list">
-                        <a class="article-related__item" href="/article">
-                            <span>Цифровые права · 21.08</span>
-                            <strong>Что означает настоящее согласие на обработку данных</strong>
-                            <i aria-hidden="true">→</i>
-                        </a>
-                        <a class="article-related__item" href="/article">
-                            <span>Цифровые права · 16.08</span>
-                            <strong>Как данные могут усиливать социальное неравенство</strong>
-                            <i aria-hidden="true">→</i>
-                        </a>
-                        <a class="article-related__item" href="/article">
-                            <span>Общество наблюдения · 24.08</span>
-                            <strong>Как наблюдение меняет наше поведение</strong>
-                            <i aria-hidden="true">→</i>
-                        </a>
+                        {foreach $relatedArticles as $relatedArticle}
+                            <a class="article-related__item" href="/article?id={$relatedArticle.id|escape}">
+                                <span>{$relatedArticle.dt_create|date_format:'%d.%m.%Y'} · {$relatedArticle.views_count|escape} просмотров</span>
+                                <strong>{$relatedArticle.name|escape}</strong>
+                                <i aria-hidden="true">→</i>
+                            </a>
+                        {foreachelse}
+                            <p class="article-related__empty">Похожих статей пока нет.</p>
+                        {/foreach}
                     </div>
                 </section>
             </aside>

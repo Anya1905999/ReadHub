@@ -37,6 +37,7 @@
             <span class="category-option__content">
               <strong>{$category.name|escape}</strong>
               <span>{$category.description|escape}</span>
+              <span class="category-option__button">Все статьи <b aria-hidden="true">→</b></span>
             </span>
             <span class="category-option__arrow" aria-hidden="true">→</span>
           </a>
@@ -67,6 +68,7 @@
               <a class="post-card__category" href="/category?id={$article.category_id|escape}">{$article.category_name|escape}</a>
               <div class="post-card__meta">
                 <time datetime="{$article.dt_create|date_format:'%Y-%m-%d'}">{$article.dt_create|date_format:'%d.%m.%Y'}</time>
+                <span class="post-card__views">{$article.views_count|escape} просмотров</span>
               </div>
               <h3 class="post-card__title"><a href="/article?id={$article.id|escape}">{$article.name|escape}</a></h3>
               <p class="post-card__description">{$article.description|escape}</p>

@@ -20,39 +20,71 @@ switch ($action) {
         }
 
         try {
-
-    /** @var PDO $pdo */
+            /** @var PDO $pdo */
             $pdo = require __DIR__ . '/../../config/db.php';
 
             $statement = $pdo->prepare(
-            'SELECT
-            a.ID AS id,
-            a.name,
-            a.description,
-            a.content,
-            a.category_id,
-            a.image_url,
-            a.dt_create,
-            c.name AS category_name,
-            c.description AS category_description
-         FROM articles AS a
-         INNER JOIN categories AS c ON c.id = a.category_id
-         WHERE a.ID = :id'
-    );
+                'SELECT
+                    a.ID AS id,
+                    a.name,
+                    a.description,
+                    a.content,
+                    a.category_id,
+                    a.image_url,
+                    a.dt_create,
+                    c.name AS category_name,
+                    c.description AS category_description,
+                    COALESCE(article_view_totals.views_count, 0) AS views_count
+                 FROM articles AS a
+                 INNER JOIN categories AS c ON c.id = a.category_id
+                 LEFT JOIN (
+                    SELECT article_id, COUNT(*) AS views_count
+                    FROM article_views
+                    GROUP BY article_id
+                 ) AS article_view_totals ON article_view_totals.article_id = a.ID
+                 WHERE a.ID = :id'
+            );
 
             $statement->execute(['id' => $articleId]);
-
             $article = $statement->fetch(PDO::FETCH_ASSOC);
 
-            if (!$article) {
+            if (! $article) {
                 http_response_code(404);
                 exit('Статья не найдена');
             }
+
+            $saveViewStatement = $pdo->prepare(
+                'INSERT INTO article_views (article_id) VALUES (:article_id)'
+            );
+            $saveViewStatement->execute(['article_id' => $articleId]);
+            $article['views_count'] = (int) $article['views_count'] + 1;
+
+            $relatedStatement = $pdo->prepare(
+                'SELECT
+                    a.ID AS id,
+                    a.name,
+                    a.dt_create,
+                    COALESCE(article_view_totals.views_count, 0) AS views_count
+                 FROM articles AS a
+                 LEFT JOIN (
+                    SELECT article_id, COUNT(*) AS views_count
+                    FROM article_views
+                    GROUP BY article_id
+                 ) AS article_view_totals ON article_view_totals.article_id = a.ID
+                 WHERE a.category_id = :category_id
+                   AND a.ID <> :article_id
+                 ORDER BY RAND()
+                 LIMIT 3'
+            );
+            $relatedStatement->bindValue(':category_id', (int) $article['category_id'], PDO::PARAM_INT);
+            $relatedStatement->bindValue(':article_id', $articleId, PDO::PARAM_INT);
+            $relatedStatement->execute();
 
             $smarty = new Smarty();
             $smarty->setTemplateDir(__DIR__ . '/../pages/');
             $smarty->setCompileDir(sys_get_temp_dir());
             $smarty->assign('article', $article);
+            $smarty->assign('relatedArticles', $relatedStatement->fetchAll());
             $smarty->display('article.tpl');
         } catch (Throwable $exception) {
             error_log($exception->getMessage());
