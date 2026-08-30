@@ -104,7 +104,7 @@
             <span class="brand__mark" aria-hidden="true">RH</span>
             <span class="brand__name">ReadHub</span>
         </a>
-        <p>Приватность защищает пространство для свободного выбора.</p>
+        <p>Стань более эрудированным.</p>
         <p class="site-footer__copyright">© 2026 ReadHub</p>
     </div>
 </footer>
