@@ -28,10 +28,17 @@
         <header class="article-header article-header--compact">
             <div class="container article-header__inner">
                 <nav class="breadcrumbs breadcrumbs--light" aria-label="Хлебные крошки">
-                    <a href="/">Главная</a><span aria-hidden="true">/</span><a href="/category?id={$article.category_id|escape}">{$article.category_name|escape}</a>
+                    <a href="/">Главная</a>
+                    {if $article.primary_category}
+                        <span aria-hidden="true">/</span><a href="/category?id={$article.primary_category.id|escape}">{$article.primary_category.name|escape}</a>
+                    {/if}
                 </nav>
                 <div class="article-header__content">
-                    <a class="article-header__category" href="/category?id={$article.category_id|escape}">{$article.category_name|escape}</a>
+                    <div class="article-header__categories">
+                        {foreach $article.categories as $category}
+                            <a href="/category?id={$category.id|escape}">{$category.name|escape}</a>
+                        {/foreach}
+                    </div>
                     <h1>{$article.name|escape}</h1>
                     <p class="article-header__description">{$article.description|escape}</p>
                     <div class="article-header__meta">
@@ -60,7 +67,14 @@
                     <p class="article-aside__label">В этой статье</p>
                     <dl>
                         <div><dt>Опубликовано</dt><dd>{$article.dt_create|date_format:'%d.%m.%Y'}</dd></div>
-                        <div><dt>Категория</dt><dd><a href="/category?id={$article.category_id|escape}">{$article.category_name|escape}</a></dd></div>
+                        <div>
+                            <dt>Категории</dt>
+                            <dd>
+                                {foreach $article.categories as $category}
+                                    <a href="/category?id={$category.id|escape}">{$category.name|escape}</a>{if ! $category@last}, {/if}
+                                {/foreach}
+                            </dd>
+                        </div>
                         <div><dt>Просмотры</dt><dd>{$article.views_count|escape}</dd></div>
                     </dl>
                 </section>

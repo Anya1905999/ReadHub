@@ -29,14 +29,10 @@ switch ($action) {
                     a.name,
                     a.description,
                     a.content,
-                    a.category_id,
                     a.image_url,
                     a.dt_create,
-                    c.name AS category_name,
-                    c.description AS category_description,
                     COALESCE(article_view_totals.views_count, 0) AS views_count
                  FROM articles AS a
-                 INNER JOIN categories AS c ON c.id = a.category_id
                  LEFT JOIN (
                     SELECT article_id, COUNT(*) AS views_count
                     FROM article_views
@@ -52,6 +48,17 @@ switch ($action) {
                 http_response_code(404);
                 exit('Статья не найдена');
             }
+
+            $categoriesStatement = $pdo->prepare(
+                'SELECT c.id, c.name, c.description
+                 FROM article_categories AS ac
+                 INNER JOIN categories AS c ON c.id = ac.category_id
+                 WHERE ac.article_id = :article_id
+                 ORDER BY c.name'
+            );
+            $categoriesStatement->execute(['article_id' => $articleId]);
+            $article['categories'] = $categoriesStatement->fetchAll();
+            $article['primary_category'] = $article['categories'][0] ?? null;
 
             $saveViewStatement = $pdo->prepare(
                 'INSERT INTO article_views (article_id) VALUES (:article_id)'
@@ -71,13 +78,20 @@ switch ($action) {
                     FROM article_views
                     GROUP BY article_id
                  ) AS article_view_totals ON article_view_totals.article_id = a.ID
-                 WHERE a.category_id = :category_id
-                   AND a.ID <> :article_id
+                 WHERE a.ID <> :excluded_article_id
+                   AND EXISTS (
+                       SELECT 1
+                       FROM article_categories AS candidate_categories
+                       INNER JOIN article_categories AS source_categories
+                           ON source_categories.category_id = candidate_categories.category_id
+                       WHERE candidate_categories.article_id = a.ID
+                         AND source_categories.article_id = :source_article_id
+                   )
                  ORDER BY RAND()
                  LIMIT 3'
             );
-            $relatedStatement->bindValue(':category_id', (int) $article['category_id'], PDO::PARAM_INT);
-            $relatedStatement->bindValue(':article_id', $articleId, PDO::PARAM_INT);
+            $relatedStatement->bindValue(':excluded_article_id', $articleId, PDO::PARAM_INT);
+            $relatedStatement->bindValue(':source_article_id', $articleId, PDO::PARAM_INT);
             $relatedStatement->execute();
 
             $smarty = new Smarty();

@@ -15,37 +15,47 @@ switch ($action) {
             $pdo = require __DIR__ . '/../../config/db.php';
 
             $categories = $pdo->query(
-                'SELECT id, name, description
-                 FROM categories
-                 ORDER BY name'
+                'SELECT
+                    c.id,
+                    c.name,
+                    c.description,
+                    COUNT(ac.article_id) AS article_count
+                 FROM categories AS c
+                 INNER JOIN article_categories AS ac ON ac.category_id = c.id
+                 GROUP BY c.id, c.name, c.description
+                 ORDER BY c.name'
             )->fetchAll();
 
-            $articles = $pdo->query(
+            $articlesStatement = $pdo->prepare(
                 'SELECT
                     a.ID AS id,
                     a.name,
                     a.description,
                     a.image_url,
                     a.dt_create,
-                    a.category_id,
-                    c.name AS category_name,
                     COALESCE(article_view_totals.views_count, 0) AS views_count
-                 FROM articles AS a
-                 INNER JOIN categories AS c ON c.id = a.category_id
+                 FROM article_categories AS ac
+                 INNER JOIN articles AS a ON a.ID = ac.article_id
                  LEFT JOIN (
                     SELECT article_id, COUNT(*) AS views_count
                     FROM article_views
                     GROUP BY article_id
                  ) AS article_view_totals ON article_view_totals.article_id = a.ID
+                 WHERE ac.category_id = :category_id
                  ORDER BY a.dt_create DESC, a.ID DESC
-                 LIMIT 6'
-            )->fetchAll();
+                 LIMIT 3'
+            );
+
+            foreach ($categories as &$category) {
+                $articlesStatement->execute(['category_id' => $category['id']]);
+                $category['articles'] = $articlesStatement->fetchAll();
+            }
+            unset($category);
 
             $smarty = new Smarty();
             $smarty->setTemplateDir(__DIR__ . '/../pages/');
             $smarty->setCompileDir(sys_get_temp_dir());
             $smarty->assign('categories', $categories);
-            $smarty->assign('articles', $articles);
             $smarty->display('home.tpl');
         } catch (Throwable $exception) {
             error_log($exception->getMessage());

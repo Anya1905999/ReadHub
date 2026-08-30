@@ -70,7 +70,7 @@ switch ($action) {
 
             $countStatement = $pdo->prepare(
                 'SELECT COUNT(*)
-                 FROM articles
+                 FROM article_categories
                  WHERE category_id = :category_id'
             );
             $countStatement->execute(['category_id' => $category['id']]);
@@ -86,15 +86,15 @@ switch ($action) {
                     a.description,
                     a.image_url,
                     a.dt_create,
-                    a.category_id,
                     COALESCE(article_view_totals.views_count, 0) AS views_count
-                 FROM articles AS a
+                 FROM article_categories AS ac
+                 INNER JOIN articles AS a ON a.ID = ac.article_id
                  LEFT JOIN (
                     SELECT article_id, COUNT(*) AS views_count
                     FROM article_views
                     GROUP BY article_id
                  ) AS article_view_totals ON article_view_totals.article_id = a.ID
-                 WHERE a.category_id = :category_id
+                 WHERE ac.category_id = :category_id
                  ORDER BY ' . $sortOptions[$sort] . '
                  LIMIT :limit OFFSET :offset'
             );

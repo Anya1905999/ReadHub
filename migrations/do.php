@@ -24,7 +24,7 @@ try {
         true
     );
 
-    $migrationFiles = glob(__DIR__ . '/*.sql') ?: [];
+    $migrationFiles = glob(__DIR__ . '/list/*.sql') ?: [];
     sort($migrationFiles, SORT_STRING);
 
     $saveMigration = $pdo->prepare(
