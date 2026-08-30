@@ -1,3 +1,12 @@
+$color-ink: #17211b;
+$color-paper: #f7f4ed;
+$color-white: #fff;
+$color-accent: #63b66b;
+$color-accent-light: #d9f99d;
+$font-sans: Inter, "Segoe UI", Arial, sans-serif;
+$font-serif: Georgia, "Times New Roman", serif;
+$transition-fast: 0.2s ease;
+
 *,
 *::before,
 *::after {
@@ -10,9 +19,9 @@ html {
 
 body {
   margin: 0;
-  color: #17211b;
-  background: #f7f4ed;
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: $color-ink;
+  background: $color-paper;
+  font-family: $font-sans;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -36,7 +45,7 @@ select {
 button:focus-visible,
 a:focus-visible,
 select:focus-visible {
-  outline: 3px solid rgba(99, 182, 107, 0.35);
+  outline: 3px solid rgba($color-accent, 0.35);
   outline-offset: 4px;
 }
 
@@ -52,7 +61,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: $font-serif;
   line-height: 1.08;
   letter-spacing: -0.025em;
 }
@@ -69,10 +78,10 @@ h4 {
   left: 12px;
   padding: 10px 16px;
   border-radius: 10px;
-  color: #fff;
-  background: #17211b;
+  color: $color-white;
+  background: $color-ink;
   transform: translateY(-150%);
-  transition: transform 0.2s ease;
+  transition: transform $transition-fast;
 }
 .skip-link:focus {
   transform: translateY(0);
@@ -100,17 +109,17 @@ h4 {
   height: 38px;
   place-items: center;
   border-radius: 50%;
-  color: #fff;
-  background: #63b66b;
-  font-family: Georgia, "Times New Roman", serif;
+  color: $color-white;
+  background: $color-accent;
+  font-family: $font-serif;
   font-size: 1.25rem;
 }
 .brand__name {
   font-size: 1.1rem;
 }
 .brand--footer .brand__mark {
-  color: #17211b;
-  background: #d9f99d;
+  color: $color-ink;
+  background: $color-accent-light;
 }
 
 .site-header {

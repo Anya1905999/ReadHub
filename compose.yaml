@@ -1,0 +1,45 @@
+name: readhub
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT:-8080}:80"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: "${DB_DATABASE:-readHub}"
+      DB_USERNAME: "${DB_USERNAME:-readHub_user}"
+      DB_PASSWORD: "${DB_PASSWORD:-readHub_password}"
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - sh
+      - -c
+      - php migrations/do.php && exec apache2-foreground
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: "${DB_DATABASE:-readHub}"
+      MYSQL_USER: "${DB_USERNAME:-readHub_user}"
+      MYSQL_PASSWORD: "${DB_PASSWORD:-readHub_password}"
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-readHub_root_password}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h localhost -uroot -p"$${MYSQL_ROOT_PASSWORD}" --silent
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
