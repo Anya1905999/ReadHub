@@ -256,18 +256,129 @@ $additionalArticleTitles = [
     ],
 ];
 
-$categoryImages = [
-    'Спорт' => 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=80',
-    'Медицина' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
-    'Экология' => 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80',
-    'Технологии' => 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
-    'Наука' => 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80',
-    'Образование' => 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
-    'Экономика' => 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80',
-    'Путешествия' => 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80',
-    'Культура' => 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80',
-    'Автомобили' => 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
+$additionalArticleImages = [
+    'Спорт' => [
+        'Как выбрать вид спорта, который подходит именно вам' => 'https://unsplash.com/photos/PfQh55R0ZtE/download?force=true&w=1200',
+        'Силовые тренировки для начинающих' => 'https://unsplash.com/photos/bE6k8SQT2FQ/download?force=true&w=1200',
+        'Почему восстановление важно не меньше тренировки' => 'https://unsplash.com/photos/lT1OseWogDc/download?force=true&w=1200',
+        'Как правильно делать разминку перед нагрузкой' => 'https://unsplash.com/photos/gJtDg6WfMlQ/download?force=true&w=1200',
+        'Основы спортивного питания без сложных схем' => 'https://unsplash.com/photos/IzdLRdXcNT8/download?force=true&w=1200',
+        'Как организовать эффективные тренировки дома' => 'https://unsplash.com/photos/tj27cwu86Wk/download?force=true&w=1200',
+        'Что такое пульсовые зоны и зачем их учитывать' => 'https://unsplash.com/photos/f4RBYsY2hxA/download?force=true&w=1200',
+        'Как командный спорт развивает полезные навыки' => 'https://unsplash.com/photos/8BXVwk0n2vM/download?force=true&w=1200',
+        'Как подготовиться к своему первому забегу' => 'https://unsplash.com/photos/d3bYmnZ0ank/download?force=true&w=1200',
+    ],
+    'Медицина' => [
+        'Как наладить здоровый режим сна' => 'https://unsplash.com/photos/S1v7hVUiCg0/download?force=true&w=1200',
+        'Что важно знать о диспансеризации' => 'https://unsplash.com/photos/NFvdKIhxYlU/download?force=true&w=1200',
+        'Как правильно измерять артериальное давление' => 'https://unsplash.com/photos/nss2eRzQwgw/download?force=true&w=1200',
+        'Почему нельзя принимать антибиотики без назначения' => 'https://unsplash.com/photos/yo01Z-9HQAw/download?force=true&w=1200',
+        'Как поддерживать здоровье сердца каждый день' => 'https://unsplash.com/photos/RS0-h_pyByk/download?force=true&w=1200',
+        'Что такое доказательная медицина' => 'https://unsplash.com/photos/jwWtZrm67VI/download?force=true&w=1200',
+        'Как подготовиться к визиту к врачу' => 'https://unsplash.com/photos/tE7_jvK-_YU/download?force=true&w=1200',
+        'Почему важно следить за уровнем стресса' => 'https://unsplash.com/photos/w8p9cQDLX7I/download?force=true&w=1200',
+        'Какие привычки помогают укреплять иммунитет' => 'https://unsplash.com/photos/tMFeatBSS4s/download?force=true&w=1200',
+    ],
+    'Экология' => [
+        'Как сократить количество бытовых отходов' => 'https://unsplash.com/photos/_RBcxo9AU-U/download?force=true&w=1200',
+        'Зачем сортировать мусор дома' => 'https://unsplash.com/photos/Rfflri94rs8/download?force=true&w=1200',
+        'Как экономить воду без потери комфорта' => 'https://unsplash.com/photos/01_igFr7hd4/download?force=true&w=1200',
+        'Почему биоразнообразие важно для человека' => 'https://unsplash.com/photos/x8ZStukS2PM/download?force=true&w=1200',
+        'Как транспорт влияет на качество воздуха' => 'https://unsplash.com/photos/pF_2lrjWiJE/download?force=true&w=1200',
+        'Что такое углеродный след' => 'https://unsplash.com/photos/WgGJjGN4_ck/download?force=true&w=1200',
+        'Как сделать повседневные покупки экологичнее' => 'https://unsplash.com/photos/x1w_Q78xNEY/download?force=true&w=1200',
+        'Почему восстановление лесов требует планирования' => 'https://unsplash.com/photos/19SC2oaVZW0/download?force=true&w=1200',
+        'Как изменение климата влияет на города' => 'https://unsplash.com/photos/0w-uTa0Xz7w/download?force=true&w=1200',
+    ],
+    'Технологии' => [
+        'Как работают облачные сервисы' => 'https://unsplash.com/photos/EUsVwEOsblE/download?force=true&w=1200',
+        'Что нужно знать о защите персональных данных' => 'https://unsplash.com/photos/_0iV9LmPDn0/download?force=true&w=1200',
+        'Как выбрать смартфон под свои задачи' => 'https://unsplash.com/photos/eGGFZ5X2LnA/download?force=true&w=1200',
+        'Почему двухфакторная аутентификация повышает безопасность' => 'https://unsplash.com/photos/FHgWFzDDAOs/download?force=true&w=1200',
+        'Что такое интернет вещей' => 'https://unsplash.com/photos/ZPOoDQc8yMw/download?force=true&w=1200',
+        'Как нейросети создают изображения и тексты' => 'https://unsplash.com/photos/fwbUN8IYvQY/download?force=true&w=1200',
+        'Почему резервные копии действительно необходимы' => 'https://unsplash.com/photos/WhAQMsdRKMI/download?force=true&w=1200',
+        'Как устроены современные поисковые системы' => 'https://unsplash.com/photos/U9e6ySWMW_0/download?force=true&w=1200',
+        'Какие технологии меняют умные города' => 'https://unsplash.com/photos/gVQLAbGVB6Q/download?force=true&w=1200',
+    ],
+    'Наука' => [
+        'Как учёные изучают далёкие галактики' => 'https://unsplash.com/photos/ct10qdGv1hQ/download?force=true&w=1200',
+        'Что известно о тёмной материи' => 'https://unsplash.com/photos/lQGJCMY5qcM/download?force=true&w=1200',
+        'Как работает научный метод' => 'https://unsplash.com/photos/RlOAwXt2fEA/download?force=true&w=1200',
+        'Почему квантовая физика отличается от классической' => 'https://unsplash.com/photos/gKUC4TMhOiY/download?force=true&w=1200',
+        'Как исследователи прогнозируют погоду' => 'https://unsplash.com/photos/L7en7Lb-Ovc/download?force=true&w=1200',
+        'Что палеонтология рассказывает о прошлом Земли' => 'https://unsplash.com/photos/tGYrlchfObE/download?force=true&w=1200',
+        'Как открывают новые виды живых организмов' => 'https://unsplash.com/photos/8yS04veb1TQ/download?force=true&w=1200',
+        'Почему исследования океана так важны' => 'https://unsplash.com/photos/XknuBmnjbKg/download?force=true&w=1200',
+        'Как создаются новые материалы' => 'https://unsplash.com/photos/6NMcUDG37Yc/download?force=true&w=1200',
+    ],
+    'Образование' => [
+        'Как эффективно конспектировать учебный материал' => 'https://unsplash.com/photos/ev3Xqhr_0pI/download?force=true&w=1200',
+        'Почему полезно учиться небольшими блоками' => 'https://unsplash.com/photos/klbApl9mxr0/download?force=true&w=1200',
+        'Как выбрать онлайн-курс и не бросить его' => 'https://unsplash.com/photos/JY9bBAcs0vs/download?force=true&w=1200',
+        'Что помогает развивать критическое мышление' => 'https://unsplash.com/photos/NGLWZV4xOPg/download?force=true&w=1200',
+        'Как подготовиться к важному экзамену' => 'https://unsplash.com/photos/dPQBwZ6d-NU/download?force=true&w=1200',
+        'Почему ошибки необходимы для обучения' => 'https://unsplash.com/photos/v4DVZst1MhA/download?force=true&w=1200',
+        'Как создать удобное место для занятий' => 'https://unsplash.com/photos/sp6F_ox9Ph8/download?force=true&w=1200',
+        'Что такое интервальное повторение' => 'https://unsplash.com/photos/wAgfqXpYqug/download?force=true&w=1200',
+        'Как поддерживать мотивацию во время учёбы' => 'https://unsplash.com/photos/O5AUshHn28A/download?force=true&w=1200',
+    ],
+    'Экономика' => [
+        'Как работает инфляция простыми словами' => 'https://unsplash.com/photos/XrIfY_4cK1w/download?force=true&w=1200',
+        'Зачем нужна финансовая подушка' => 'https://unsplash.com/photos/OApHds2yEGQ/download?force=true&w=1200',
+        'Что важно знать о банковских вкладах' => 'https://unsplash.com/photos/1zO4O3Z0UJA/download?force=true&w=1200',
+        'Как процентные ставки влияют на экономику' => 'https://unsplash.com/photos/Wb63zqJ5gnE/download?force=true&w=1200',
+        'Почему меняются валютные курсы' => 'https://unsplash.com/photos/WZ5z7o_6HSU/download?force=true&w=1200',
+        'Как малый бизнес влияет на развитие городов' => 'https://unsplash.com/photos/CktZjrBaM8s/download?force=true&w=1200',
+        'Что такое диверсификация сбережений' => 'https://unsplash.com/photos/9VJu3QUgmdA/download?force=true&w=1200',
+        'Как технологии меняют рынок труда' => 'https://unsplash.com/photos/VOWQ4wBn094/download?force=true&w=1200',
+        'Почему важно планировать крупные покупки' => 'https://unsplash.com/photos/zR7nFjjIAWE/download?force=true&w=1200',
+    ],
+    'Путешествия' => [
+        'Как собрать компактный багаж' => 'https://unsplash.com/photos/M0AWNxnLaMw/download?force=true&w=1200',
+        'Что проверить перед поездкой за границу' => 'https://unsplash.com/photos/O453M2Liufs/download?force=true&w=1200',
+        'Как составить маршрут по новому городу' => 'https://unsplash.com/photos/A5rCN8626Ck/download?force=true&w=1200',
+        'Почему стоит путешествовать в низкий сезон' => 'https://unsplash.com/photos/rknrvCrfS1k/download?force=true&w=1200',
+        'Как выбрать подходящее жильё в поездке' => 'https://unsplash.com/photos/bMIlyKZHKMY/download?force=true&w=1200',
+        'Что взять с собой в поход выходного дня' => 'https://unsplash.com/photos/UmV2wr-Vbq8/download?force=true&w=1200',
+        'Как экономить в путешествии без потери комфорта' => 'https://unsplash.com/photos/hpTH5b6mo2s/download?force=true&w=1200',
+        'Почему полезно изучать местные традиции' => 'https://unsplash.com/photos/eOcyhe5-9sQ/download?force=true&w=1200',
+        'Как подготовиться к длительному перелёту' => 'https://unsplash.com/photos/oCdVtGFeDC0/download?force=true&w=1200',
+    ],
+    'Культура' => [
+        'Как начать разбираться в современном искусстве' => 'https://unsplash.com/photos/rPOmLGwai2w/download?force=true&w=1200',
+        'Почему музеи меняются вместе с обществом' => 'https://unsplash.com/photos/fEVaiLwWvlU/download?force=true&w=1200',
+        'Как музыка влияет на настроение' => 'https://unsplash.com/photos/MlhJNEUQpBs/download?force=true&w=1200',
+        'Что делает фильм классикой' => 'https://unsplash.com/photos/HwU5H9Y6aL8/download?force=true&w=1200',
+        'Почему театру удаётся оставаться актуальным' => 'https://unsplash.com/photos/n8rK2ALPHTY/download?force=true&w=1200',
+        'Как вести читательский дневник' => 'https://unsplash.com/photos/evlkOfkQ5rE/download?force=true&w=1200',
+        'Что такое культурное наследие' => 'https://unsplash.com/photos/p6rNTdAPbuk/download?force=true&w=1200',
+        'Как появились первые публичные библиотеки' => 'https://unsplash.com/photos/WW1jsInXgwM/download?force=true&w=1200',
+        'Почему фестивали важны для городской культуры' => 'https://unsplash.com/photos/AtPWnYNDJnM/download?force=true&w=1200',
+    ],
+    'Автомобили' => [
+        'Как подготовить автомобиль к дальней поездке' => 'https://unsplash.com/photos/_4sWbzH5fp8/download?force=true&w=1200',
+        'Что означают индикаторы на приборной панели' => 'https://unsplash.com/photos/3ZUsNJhi_Ik/download?force=true&w=1200',
+        'Как выбрать зимние шины' => 'https://unsplash.com/photos/6lSBynPRaAQ/download?force=true&w=1200',
+        'Почему важно регулярно проверять давление в шинах' => 'https://unsplash.com/photos/ZRns2R5azu0/download?force=true&w=1200',
+        'Как работают современные системы помощи водителю' => 'https://unsplash.com/photos/YApiWyp0lqo/download?force=true&w=1200',
+        'Что нужно знать о гибридных автомобилях' => 'https://unsplash.com/photos/m3m-lnR90uM/download?force=true&w=1200',
+        'Как ухаживать за аккумулятором автомобиля' => 'https://unsplash.com/photos/d1Jum1vVLew/download?force=true&w=1200',
+        'Почему аэродинамика влияет на расход топлива' => 'https://unsplash.com/photos/eqW1MPinEV4/download?force=true&w=1200',
+        'Как меняется общественный транспорт будущего' => 'https://unsplash.com/photos/aiwuLjLPFnU/download?force=true&w=1200',
+    ],
 ];
+
+// Проверяем, что для каждой дополнительной статьи задана отдельная картинка.
+foreach ($additionalArticleTitles as $categoryName => $titles) {
+    $images = $additionalArticleImages[$categoryName] ?? [];
+
+    foreach ($titles as $title) {
+        if (!isset($images[$title])) {
+            throw new LogicException("Не задана картинка для статьи «{$title}».");
+        }
+    }
+}
 
 $publicationDate = new DateTimeImmutable('2026-08-20 09:00:00');
 $publicationOffset = 0;
@@ -286,7 +397,7 @@ foreach ($additionalArticleTitles as $categoryName => $titles) {
                 $safeTitle,
                 $safeCategoryName
             ),
-            'image_url' => $categoryImages[$categoryName],
+            'image_url' => $additionalArticleImages[$categoryName][$title],
             'dt_create' => $publicationDate
                 ->modify(sprintf('-%d days', $publicationOffset))
                 ->format('Y-m-d H:i:s'),
@@ -294,6 +405,12 @@ foreach ($additionalArticleTitles as $categoryName => $titles) {
 
         $publicationOffset++;
     }
+}
+
+$articleImageUrls = array_column($articles, 'image_url');
+
+if (count($articleImageUrls) !== count(array_unique($articleImageUrls))) {
+    throw new LogicException('У статей обнаружены повторяющиеся картинки.');
 }
 
 $articleCountsByCategory = array_fill_keys(array_column($categories, 'name'), 0);
