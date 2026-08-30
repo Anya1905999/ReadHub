@@ -1,9 +1,9 @@
 <?php
 
 $routes = [
-    '/' => __DIR__ . '/../public/pages/home.php',
-    '/category' => __DIR__ . '/../public/pages/category.php',
-    '/article' => __DIR__ . '/../public/pages/article.php',
+    '/' => __DIR__ . '/../public/ajax/home.php',
+    '/category' => __DIR__ . '/../public/ajax/category.php',
+    '/article' => __DIR__ . '/../public/ajax/article.php',
 ];
 
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);

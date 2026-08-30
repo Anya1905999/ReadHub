@@ -6,7 +6,7 @@ $host = getenv('DB_HOST') ?: '127.0.0.1';
 $port = getenv('DB_PORT') ?: '3306';
 $db = getenv('DB_DATABASE') ?: 'readHub';
 $username = getenv('DB_USERNAME') ?: 'readHub_user';
-$password = getenv('DB_PASSWORD') ?: '';
+$password = getenv('DB_PASSWORD') ?: 'readHub_password';
 
 $dsn = sprintf(
     'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
