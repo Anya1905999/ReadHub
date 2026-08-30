@@ -34,21 +34,22 @@
                     <h1>{$category.name|escape}</h1>
                     <p>{$category.description|escape}</p>
                 </div>
-                <p class="page-intro__counter"><strong>{$articles|count}</strong><span>материала в подборке</span></p>
+                <p class="page-intro__counter"><strong>{$totalArticles}</strong><span>материалов в подборке</span></p>
             </div>
         </section>
         <section class="catalog">
             <div class="container">
                 <div class="catalog__toolbar">
-                    <p>Найдено материалов: {$articles|count}</p>
+                    <p>Найдено материалов: {$totalArticles}</p>
                     <form class="sort-form" action="/category" method="get">
                         <input type="hidden" name="id" value="{$category.id|escape}">
                         <label for="sort">Сортировать</label>
                         <select id="sort" name="sort">
-                            <option value="date_desc">Сначала новые</option>
-                            <option value="views_desc">По просмотрам</option>
-                            <option value="date_asc">Сначала старые</option>
+                            <option value="date_desc"{if $sort == 'date_desc'} selected{/if}>Сначала новые</option>
+                            <option value="views_desc"{if $sort == 'views_desc'} selected{/if}>По просмотрам</option>
+                            <option value="date_asc"{if $sort == 'date_asc'} selected{/if}>Сначала старые</option>
                         </select>
+                        <button class="button button--compact" type="submit">Применить</button>
                     </form>
                 </div>
                 <div class="post-grid post-grid--catalog">
@@ -64,6 +65,7 @@
                             <div class="post-card__body">
                                 <div class="post-card__meta">
                                     <time datetime="{$article.dt_create|date_format:'%Y-%m-%d'}">{$article.dt_create|date_format:'%d.%m.%Y'}</time>
+                                    <span class="post-card__views">{$article.views_count|escape} просмотров</span>
                                 </div>
                                 <h4 class="post-card__title"><a href="/article?id={$article.id|escape}">{$article.name|escape}</a></h4>
                                 <p class="post-card__description">{$article.description|escape}</p>
@@ -74,6 +76,27 @@
                         <p>В этой категории пока нет статей.</p>
                     {/foreach}
                 </div>
+                {if $totalPages > 1}
+                    <nav class="pagination" aria-label="Страницы категории">
+                        {if $currentPage > 1}
+                            <a class="pagination__arrow" href="/category?id={$category.id|escape}&amp;sort={$sort|escape}&amp;page={$previousPage}" aria-label="Предыдущая страница">←</a>
+                        {else}
+                            <span class="pagination__arrow is-disabled" aria-hidden="true">←</span>
+                        {/if}
+                        <div class="pagination__pages">
+                            {foreach $paginationPages as $paginationPage}
+                                <a class="pagination__page{if $paginationPage == $currentPage} is-current{/if}"
+                                   href="/category?id={$category.id|escape}&amp;sort={$sort|escape}&amp;page={$paginationPage}"
+                                   {if $paginationPage == $currentPage}aria-current="page"{/if}>{$paginationPage}</a>
+                            {/foreach}
+                        </div>
+                        {if $currentPage < $totalPages}
+                            <a class="pagination__arrow" href="/category?id={$category.id|escape}&amp;sort={$sort|escape}&amp;page={$nextPage}" aria-label="Следующая страница">→</a>
+                        {else}
+                            <span class="pagination__arrow is-disabled" aria-hidden="true">→</span>
+                        {/if}
+                    </nav>
+                {/if}
             </div>
         </section>
 

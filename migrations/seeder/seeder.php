@@ -59,6 +59,7 @@ HTML,
     ],
     [
         'category' => 'Технологии',
+        'categories' => ['Технологии', 'Наука'],
         'name' => 'Как искусственный интеллект меняет повседневные сервисы',
         'description' => 'Алгоритмы помогают искать информацию, переводить тексты и автоматизировать рутинные задачи.',
         'content' => <<<'HTML'
@@ -145,7 +146,7 @@ HTML,
 
 try {
     /** @var PDO $pdo */
-    $pdo = require __DIR__ . '/../config/db.php';
+    $pdo = require __DIR__ . '/../../config/db.php';
     $pdo->beginTransaction();
 
     $findCategory = $pdo->prepare('SELECT id FROM categories WHERE name = :name LIMIT 1');
@@ -181,7 +182,7 @@ try {
     }
 
     $findArticle = $pdo->prepare(
-        'SELECT ID FROM articles WHERE name = :name AND category_id = :category_id LIMIT 1'
+        'SELECT ID FROM articles WHERE name = :name LIMIT 1'
     );
     $insertArticle = $pdo->prepare(
         'INSERT INTO articles
@@ -191,31 +192,48 @@ try {
     );
     $updateArticle = $pdo->prepare(
         'UPDATE articles
-         SET description = :description,
+         SET category_id = :category_id,
+             description = :description,
              content = :content,
              image_url = :image_url,
              dt_create = :dt_create
          WHERE ID = :id'
+    );
+    $deleteArticleCategories = $pdo->prepare(
+        'DELETE FROM article_categories WHERE article_id = :article_id'
+    );
+    $insertArticleCategory = $pdo->prepare(
+        'INSERT INTO article_categories (article_id, category_id)
+         VALUES (:article_id, :category_id)'
     );
 
     $createdArticles = 0;
     $updatedArticles = 0;
 
     foreach ($articles as $article) {
-        $categoryName = $article['category'];
-        $categoryId = $categoryIds[$categoryName] ?? null;
+        $articleCategoryNames = $article['categories'] ?? [$article['category']];
+        $articleCategoryIds = [];
 
-        if ($categoryId === null) {
-            throw new RuntimeException("Не найдена категория: {$categoryName}");
+        foreach (array_unique($articleCategoryNames) as $categoryName) {
+            $categoryId = $categoryIds[$categoryName] ?? null;
+
+            if ($categoryId === null) {
+                throw new RuntimeException("Не найдена категория: {$categoryName}");
+            }
+
+            $articleCategoryIds[] = $categoryId;
         }
 
-        $findArticle->execute([
-            'name' => $article['name'],
-            'category_id' => $categoryId,
-        ]);
+        if ($articleCategoryIds === []) {
+            throw new RuntimeException("У статьи нет категорий: {$article['name']}");
+        }
+
+        $primaryCategoryId = $articleCategoryIds[0];
+        $findArticle->execute(['name' => $article['name']]);
         $articleId = $findArticle->fetchColumn();
 
         $parameters = [
+            'category_id' => $primaryCategoryId,
             'description' => $article['description'],
             'content' => $article['content'],
             'image_url' => $article['image_url'],
@@ -225,16 +243,26 @@ try {
         if ($articleId === false) {
             $insertArticle->execute([
                 'name' => $article['name'],
-                'category_id' => $categoryId,
                 ...$parameters,
             ]);
+            $articleId = (int) $pdo->lastInsertId();
             $createdArticles++;
         } else {
+            $articleId = (int) $articleId;
             $updateArticle->execute([
-                'id' => (int) $articleId,
+                'id' => $articleId,
                 ...$parameters,
             ]);
             $updatedArticles++;
+        }
+
+        $deleteArticleCategories->execute(['article_id' => $articleId]);
+
+        foreach ($articleCategoryIds as $categoryId) {
+            $insertArticleCategory->execute([
+                'article_id' => $articleId,
+                'category_id' => $categoryId,
+            ]);
         }
     }
 
