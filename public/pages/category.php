@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Статьи о цифровых правах, конфиденциальности и свободе человека">
     <title>Цифровые права — ReadHub</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Перейти к содержимому</a>
     <header class="site-header">
         <div class="container site-header__inner">
-            <a class="brand" href="index.html" aria-label="ReadHub — на главную">
+            <a class="brand" href="/" aria-label="ReadHub — на главную">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>
             <span class="site-header__edition">Журнал о приватности, технологиях и обществе</span>
             <nav class="main-nav" aria-label="Основная навигация">
-                <a class="main-nav__link" href="index.html">Главная</a>
-                <a class="main-nav__link is-active" href="index.html#categories">Категории</a>
+                <a class="main-nav__link" href="/">Главная</a>
+                <a class="main-nav__link is-active" href="/#categories">Категории</a>
             </nav>
         </div>
     </header>
@@ -26,7 +26,7 @@
         <section class="page-intro">
             <div class="container page-intro__inner">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
-                    <a href="index.html">Главная</a><span aria-hidden="true">/</span><span>Цифровые права</span>
+                    <a href="/">Главная</a><span aria-hidden="true">/</span><span>Цифровые права</span>
                 </nav>
                 <div class="page-intro__content">
                     <p class="eyebrow">Категория</p>
@@ -40,7 +40,7 @@
             <div class="container">
                 <div class="catalog__toolbar">
                     <p>Показаны статьи 1–3 из 3</p>
-                    <form class="sort-form" action="category.html" method="get">
+                    <form class="sort-form" action="/category" method="get">
                         <label for="sort">Сортировать</label>
                         <select id="sort" name="sort">
                             <option value="date_desc">Сначала новые</option>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="post-grid post-grid--catalog">
                     <article class="post-card">
-                        <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true">
+                        <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true">
                             <span class="post-card__placeholder">ReadHub</span>
                         </a>
                         <div class="post-card__body">
@@ -59,13 +59,13 @@
                                 <time datetime="2026-08-26">26.08.2026</time>
                                 <span class="post-card__views">1840 просмотров</span>
                             </div>
-                            <h4 class="post-card__title"><a href="article.html">Почему приватность — общественная ценность</a></h4>
+                            <h4 class="post-card__title"><a href="/article">Почему приватность — общественная ценность</a></h4>
                             <p class="post-card__description">Личные границы защищают не только отдельного человека, но и открытость всего общества.</p>
-                            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+                            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                     <article class="post-card">
-                        <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true">
+                        <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true">
                             <span class="post-card__placeholder">ReadHub</span>
                         </a>
                         <div class="post-card__body">
@@ -73,13 +73,13 @@
                                 <time datetime="2026-08-21">21.08.2026</time>
                                 <span class="post-card__views">1375 просмотров</span>
                             </div>
-                            <h4 class="post-card__title"><a href="article.html">Что означает настоящее согласие на обработку данных</a></h4>
+                            <h4 class="post-card__title"><a href="/article">Что означает настоящее согласие на обработку данных</a></h4>
                             <p class="post-card__description">Почему одна кнопка «Принять» не всегда даёт человеку реальный контроль над информацией.</p>
-                            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+                            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                     <article class="post-card">
-                        <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true">
+                        <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true">
                             <span class="post-card__placeholder">ReadHub</span>
                         </a>
                         <div class="post-card__body">
@@ -87,9 +87,9 @@
                                 <time datetime="2026-08-16">16.08.2026</time>
                                 <span class="post-card__views">1124 просмотров</span>
                             </div>
-                            <h4 class="post-card__title"><a href="article.html">Как данные могут усиливать социальное неравенство</a></h4>
+                            <h4 class="post-card__title"><a href="/article">Как данные могут усиливать социальное неравенство</a></h4>
                             <p class="post-card__description">Автоматические оценки влияют на доступ к работе, кредитам и общественным возможностям.</p>
-                            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+                            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 </div>
@@ -99,7 +99,7 @@
     </main>
     <footer class="site-footer">
         <div class="container site-footer__inner">
-            <a class="brand brand--footer" href="index.html">
+            <a class="brand brand--footer" href="/">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>

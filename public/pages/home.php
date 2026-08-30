@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Блог о влиянии конфиденциальности на современное общество">
     <title>ReadHub — конфиденциальность и современное общество</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Перейти к содержимому</a>
     <header class="site-header">
         <div class="container site-header__inner">
-            <a class="brand" href="index.html" aria-label="ReadHub — на главную">
+            <a class="brand" href="/" aria-label="ReadHub — на главную">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>
             <span class="site-header__edition">Журнал о приватности, технологиях и обществе</span>
             <nav class="main-nav" aria-label="Основная навигация">
-                <a class="main-nav__link is-active" href="index.html">Главная</a>
+                <a class="main-nav__link is-active" href="/">Главная</a>
             </nav>
         </div>
     </header>
@@ -30,17 +30,17 @@
         <p>Перейдите к подборке и читайте материалы только по выбранной теме.</p>
       </header>
       <div class="category-options">
-        <a class="category-option" href="category.html">
+        <a class="category-option" href="/category">
           <span class="category-option__number" aria-hidden="true">01</span>
           <span class="category-option__content"><strong>Цифровые права</strong><span>Свобода, согласие и контроль над личными данными.</span></span>
           <span class="category-option__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="category-option" href="category-surveillance.html">
+        <a class="category-option" href="/category">
           <span class="category-option__number" aria-hidden="true">02</span>
           <span class="category-option__content"><strong>Общество наблюдения</strong><span>Камеры, алгоритмы и изменения публичной жизни.</span></span>
           <span class="category-option__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="category-option" href="category-everyday.html">
+        <a class="category-option" href="/category">
           <span class="category-option__number" aria-hidden="true">03</span>
           <span class="category-option__content"><strong>Повседневная приватность</strong><span>Личные границы дома, на работе и в семье.</span></span>
           <span class="category-option__arrow" aria-hidden="true">→</span>
@@ -57,63 +57,63 @@
       </header>
       <div class="post-grid post-grid--latest">
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category.html">Цифровые права</a>
+            <a class="post-card__category" href="/category">Цифровые права</a>
             <div class="post-card__meta"><time datetime="2026-08-26">26.08.2026</time><span class="post-card__views">1840 просмотров</span></div>
-            <h3 class="post-card__title"><a href="article.html">Почему приватность — общественная ценность</a></h3>
+            <h3 class="post-card__title"><a href="/article">Почему приватность — общественная ценность</a></h3>
             <p class="post-card__description">Личные границы защищают не только отдельного человека, но и открытость всего общества.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category-surveillance.html">Общество наблюдения</a>
+            <a class="post-card__category" href="/category">Общество наблюдения</a>
             <div class="post-card__meta"><time datetime="2026-08-24">24.08.2026</time><span class="post-card__views">2086 просмотров</span></div>
-            <h3 class="post-card__title"><a href="article.html">Как наблюдение меняет наше поведение</a></h3>
+            <h3 class="post-card__title"><a href="/article">Как наблюдение меняет наше поведение</a></h3>
             <p class="post-card__description">Даже незаметная возможность контроля влияет на выбор слов, маршрутов и собеседников.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category-everyday.html">Повседневная приватность</a>
+            <a class="post-card__category" href="/category">Повседневная приватность</a>
             <div class="post-card__meta"><time datetime="2026-08-23">23.08.2026</time><span class="post-card__views">1298 просмотров</span></div>
-            <h3 class="post-card__title"><a href="article.html">Умный дом и новые границы личного пространства</a></h3>
+            <h3 class="post-card__title"><a href="/article">Умный дом и новые границы личного пространства</a></h3>
             <p class="post-card__description">Что происходит, когда бытовые устройства постоянно фиксируют события вокруг нас.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category.html">Цифровые права</a>
+            <a class="post-card__category" href="/category">Цифровые права</a>
             <div class="post-card__meta"><time datetime="2026-08-21">21.08.2026</time><span class="post-card__views">1375 просмотров</span></div>
-            <h3 class="post-card__title"><a href="article.html">Что означает настоящее согласие на обработку данных</a></h3>
+            <h3 class="post-card__title"><a href="/article">Что означает настоящее согласие на обработку данных</a></h3>
             <p class="post-card__description">Почему одна кнопка «Принять» не всегда даёт человеку реальный контроль над информацией.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category-surveillance.html">Общество наблюдения</a>
+            <a class="post-card__category" href="/category">Общество наблюдения</a>
             <div class="post-card__meta"><time datetime="2026-08-19">19.08.2026</time><span class="post-card__views">1762 просмотра</span></div>
-            <h3 class="post-card__title"><a href="article.html">Распознавание лиц в публичном пространстве</a></h3>
+            <h3 class="post-card__title"><a href="/article">Распознавание лиц в публичном пространстве</a></h3>
             <p class="post-card__description">Где проходит граница между удобством, безопасностью и постоянной идентификацией.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="post-card">
-          <a class="post-card__media" href="article.html" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
+          <a class="post-card__media" href="/article" tabindex="-1" aria-hidden="true"><span class="post-card__placeholder">ReadHub</span></a>
           <div class="post-card__body">
-            <a class="post-card__category" href="category-everyday.html">Повседневная приватность</a>
+            <a class="post-card__category" href="/category">Повседневная приватность</a>
             <div class="post-card__meta"><time datetime="2026-08-18">18.08.2026</time><span class="post-card__views">1644 просмотра</span></div>
-            <h3 class="post-card__title"><a href="article.html">Детский цифровой след начинается раньше выбора</a></h3>
+            <h3 class="post-card__title"><a href="/article">Детский цифровой след начинается раньше выбора</a></h3>
             <p class="post-card__description">Как публикации взрослых и сервисы формируют историю ребёнка на годы вперёд.</p>
-            <a class="post-card__link" href="article.html">Читать статью <span aria-hidden="true">→</span></a>
+            <a class="post-card__link" href="/article">Читать статью <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -122,7 +122,7 @@
 </main>
     <footer class="site-footer">
         <div class="container site-footer__inner">
-            <a class="brand brand--footer" href="index.html">
+            <a class="brand brand--footer" href="/">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>
@@ -132,4 +132,3 @@
     </footer>
 </body>
 </html>
-

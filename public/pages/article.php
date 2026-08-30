@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Почему защита конфиденциальности важна для свободы и открытого общества">
     <title>Почему приватность — общественная ценность — ReadHub</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Перейти к содержимому</a>
     <header class="site-header">
         <div class="container site-header__inner">
-            <a class="brand" href="index.html" aria-label="ReadHub — на главную">
+            <a class="brand" href="/" aria-label="ReadHub — на главную">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>
             <span class="site-header__edition">Журнал о приватности, технологиях и обществе</span>
             <nav class="main-nav" aria-label="Основная навигация">
-                <a class="main-nav__link" href="index.html">Главная</a>
-                <a class="main-nav__link" href="index.html#categories">Категории</a>
+                <a class="main-nav__link" href="/">Главная</a>
+                <a class="main-nav__link" href="/#categories">Категории</a>
             </nav>
         </div>
     </header>
@@ -27,10 +27,10 @@
     <header class="article-header article-header--compact">
       <div class="container article-header__inner">
         <nav class="breadcrumbs breadcrumbs--light" aria-label="Хлебные крошки">
-          <a href="index.html">Главная</a><span aria-hidden="true">/</span><a href="category.html">Цифровые права</a>
+          <a href="/">Главная</a><span aria-hidden="true">/</span><a href="/category">Цифровые права</a>
         </nav>
         <div class="article-header__content">
-          <a class="article-header__category" href="category.html">Цифровые права</a>
+          <a class="article-header__category" href="/category">Цифровые права</a>
           <h1>Почему приватность — общественная ценность</h1>
           <p class="article-header__description">Личные границы защищают не только отдельного человека, но и открытость всего общества.</p>
           <div class="article-header__meta">
@@ -64,7 +64,7 @@
           <dl>
             <div><dt>Опубликовано</dt><dd>26.08.2026</dd></div>
             <div><dt>Просмотры</dt><dd>1840</dd></div>
-            <div><dt>Категория</dt><dd><a href="category.html">Цифровые права</a></dd></div>
+            <div><dt>Категория</dt><dd><a href="/category">Цифровые права</a></dd></div>
           </dl>
         </section>
 
@@ -72,17 +72,17 @@
           <p class="article-aside__label">Продолжить чтение</p>
           <h2 id="related-title">Похожие статьи</h2>
           <div class="article-related__list">
-            <a class="article-related__item" href="article.html">
+            <a class="article-related__item" href="/article">
               <span>Цифровые права · 21.08</span>
               <strong>Что означает настоящее согласие на обработку данных</strong>
               <i aria-hidden="true">→</i>
             </a>
-            <a class="article-related__item" href="article.html">
+            <a class="article-related__item" href="/article">
               <span>Цифровые права · 16.08</span>
               <strong>Как данные могут усиливать социальное неравенство</strong>
               <i aria-hidden="true">→</i>
             </a>
-            <a class="article-related__item" href="article.html">
+            <a class="article-related__item" href="/article">
               <span>Общество наблюдения · 24.08</span>
               <strong>Как наблюдение меняет наше поведение</strong>
               <i aria-hidden="true">→</i>
@@ -95,7 +95,7 @@
 </main>
     <footer class="site-footer">
         <div class="container site-footer__inner">
-            <a class="brand brand--footer" href="index.html">
+            <a class="brand brand--footer" href="/">
                 <span class="brand__mark" aria-hidden="true">RH</span>
                 <span class="brand__name">ReadHub</span>
             </a>
